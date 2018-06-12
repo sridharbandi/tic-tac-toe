@@ -1,9 +1,9 @@
 import React from 'react';
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
 import './Header.css';
 
 const header = () => (
-    <Typography variant="title" className="Header">
+    <Typography variant="headline" className="Header" align="center">
         Tic Tac Toe
     </Typography>
 );
