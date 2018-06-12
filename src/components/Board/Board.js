@@ -14,11 +14,11 @@ class Board extends Component {
 
     render() {
         const rows = this.board(3).map((row, rowInd) => {
-            const columns = row.map((columns, cellInd) => {
-                console.log(cell)
+            const columns = row.map((column, cellInd) => {
+                console.log(column)
                 return 's'
             });
-            return cells
+            return columns
         });
 
 
