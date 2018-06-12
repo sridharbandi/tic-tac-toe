@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/Aux';
+import Header from '../Header/Header';
 
 class Board extends Component {
 
     render() {
-        return {
-        <Aux>
-
-        </Aux>
-    }
+        return (
+            <Aux>
+                <Header/>
+            </Aux>
+        )
     }
 }
 
