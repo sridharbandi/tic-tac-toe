@@ -5,14 +5,23 @@ import Header from '../Header/Header';
 
 class Board extends Component {
 
-    board = () =>
-        Array.from({length: 3},
-            () => Array.from({length: 3},
+    board = (size) =>
+        Array.from({length: size},
+            () => Array.from({length: size},
                 () => 0
             )
         );
 
     render() {
+        const rows = this.board(3).map((row, rowInd) => {
+            const columns = row.map((columns, cellInd) => {
+                console.log(cell)
+                return 's'
+            });
+            return cells
+        });
+
+
         return (
             <Aux>
                 <Header/>
