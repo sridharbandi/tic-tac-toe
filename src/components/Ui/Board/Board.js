@@ -18,7 +18,12 @@ class Board extends Component {
 
     clickHandler = (event) => {
         //let coordinate = event.currentTarget.dataset.coord;
-        event.currentTarget.innerHTML='fiber_manual_record';
+        const data = event.currentTarget.innerHTML;
+        if (data === '') {
+            event.currentTarget.innerHTML = 'fiber_manual_record';
+        }else{
+            alert('Clicked')
+        }
     };
 
     render() {
@@ -34,7 +39,6 @@ class Board extends Component {
                                 onClick={this.clickHandler}
                                 className="Icon"
                                 style={{fontSize: 78}}>
-
                             </Icon>
                         </Paper>
                     </ButtonBase>
