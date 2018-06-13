@@ -1,8 +1,13 @@
 .Paper {
-    width: 100px;
-    height: 100px;
+    width: 82px;
+    height: 82px;
 }
 
 .Grid {
     margin: 0px !important;
+    width: 100% !important;
+}
+
+.Circle {
+    font-size: 40px;
 }
