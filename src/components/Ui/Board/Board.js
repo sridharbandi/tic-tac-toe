@@ -4,8 +4,6 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import './Board.css';
 import ButtonBase from "@material-ui/core/ButtonBase";
-import Circle from '@material-ui/icons/FiberManualRecord';
-import Cross from '@material-ui/icons/NotInterested';
 import Icon from '@material-ui/core/Icon';
 
 
@@ -18,24 +16,39 @@ class Board extends Component {
             )
         );
 
+    clickHandler = (event) => {
+        //let coordinate = event.currentTarget.dataset.coord;
+        event.currentTarget.innerHTML='fiber_manual_record';
+    };
+
     render() {
         const boardgui = this.board.map((row, rowId) => {
             const columns = row.map((column, columnId) => (
                 <Grid key={columnId} item>
                     <ButtonBase>
-                        <Paper elevation={4} className="Paper">
-                            <Icon color="action"  style={{ fontSize: 78 }}>
-                                fiber_manual_record
+                        <Paper
+                            elevation={4}
+                            data-coord={rowId + ':' + columnId}
+                            className="Paper">
+                            <Icon
+                                onClick={this.clickHandler}
+                                className="Icon"
+                                style={{fontSize: 78}}>
+
                             </Icon>
                         </Paper>
                     </ButtonBase>
                 </Grid>
             ));
-            return <Grid key={rowId} className="Grid" container justify="center" spacing={16}>
+            return <Grid
+                key={rowId}
+                className="Grid"
+                container
+                justify="center"
+                spacing={16}>
                 {columns}
             </Grid>
         });
-
 
         return (
             <Aux>
