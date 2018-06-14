@@ -9,6 +9,10 @@ import Icon from '@material-ui/core/Icon';
 
 class Board extends Component {
 
+    state = {
+        myTurn: true
+    }
+
     board =
         Array.from({length: this.props.size},
             () => Array.from({length: this.props.size},
@@ -17,11 +21,19 @@ class Board extends Component {
         );
 
     clickHandler = (event) => {
+
         const className = event.currentTarget.parentElement.getAttribute("class");
-        event.currentTarget.parentElement.setAttribute("class", className+" Clicked");
+        event.currentTarget.parentElement.setAttribute("class", className + " Clicked");
         const value = event.currentTarget.children[0].innerHTML;
         if (value === '') {
-            event.currentTarget.children[0].innerHTML = 'fiber_manual_record';
+            if (this.state.myTurn) {
+                event.currentTarget.children[0].innerHTML = 'fiber_manual_record';
+                this.setState({myTurn: false})
+            }else{
+                event.currentTarget.children[0].innerHTML = 'games';
+                this.setState({myTurn: true})
+            }
+
         }
     };
 
