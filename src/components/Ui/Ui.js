@@ -3,6 +3,7 @@ import Aux from '../../hoc/Aux';
 import Header from './Header/Header';
 import Board from "./Board/Board";
 import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
 class Ui extends Component {
     state = {
@@ -21,13 +22,15 @@ class Ui extends Component {
             <Aux>
                 <Header/>
                 {this.state.board}
-                <Button
-                    onClick={this.resetGame}
-                    variant="raised"
-                    fullWidth
-                    color="secondary">
-                    RESET
-                </Button>
+                <Grid container justify='center' spacing={0}>
+                    <Grid>
+                        <Button
+                            onClick={this.resetGame}
+                            variant="raised"
+                            color="default">
+                            RESET
+                        </Button>
+                    </Grid></Grid>
             </Aux>
         )
     }
