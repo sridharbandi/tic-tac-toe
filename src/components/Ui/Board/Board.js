@@ -11,7 +11,7 @@ class Board extends Component {
 
     state = {
         myTurn: true
-    }
+    };
 
     board =
         Array.from({length: this.props.size},
