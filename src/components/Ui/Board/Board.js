@@ -17,12 +17,11 @@ class Board extends Component {
         );
 
     clickHandler = (event) => {
-        //let coordinate = event.currentTarget.dataset.coord;
-        const data = event.currentTarget.innerHTML;
-        if (data === '') {
-            event.currentTarget.innerHTML = 'fiber_manual_record';
-        }else{
-            alert('Clicked')
+        const className = event.currentTarget.parentElement.getAttribute("class");
+        event.currentTarget.parentElement.setAttribute("class", className+" Clicked");
+        const value = event.currentTarget.children[0].innerHTML;
+        if (value === '') {
+            event.currentTarget.children[0].innerHTML = 'fiber_manual_record';
         }
     };
 
@@ -32,11 +31,11 @@ class Board extends Component {
                 <Grid key={columnId} item>
                     <ButtonBase>
                         <Paper
+                            onClick={this.clickHandler}
                             elevation={4}
                             data-coord={rowId + ':' + columnId}
                             className="Paper">
                             <Icon
-                                onClick={this.clickHandler}
                                 className="Icon"
                                 style={{fontSize: 78}}>
                             </Icon>

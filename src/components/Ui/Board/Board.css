@@ -11,3 +11,7 @@
 .Icon {
     color: #E91E63;
 }
+
+.Clicked {
+    pointer-events: none;
+}
