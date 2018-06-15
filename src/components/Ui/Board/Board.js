@@ -21,19 +21,20 @@ class Board extends Component {
         );
 
     clickHandler = (event) => {
-
-        const className = event.currentTarget.parentElement.getAttribute("class");
-        event.currentTarget.parentElement.setAttribute("class", className + " Clicked");
-        const value = event.currentTarget.children[0].innerHTML;
+        var target = event.currentTarget;
+        var parent = target.parentElement;
+        var child = target.children[0];
+        const className = parent.getAttribute("class");
+        parent.setAttribute("class", className + " Clicked");
+        const value = child.innerHTML;
         if (value === '') {
             if (this.state.myTurn) {
-                event.currentTarget.children[0].innerHTML = 'fiber_manual_record';
+                child.innerHTML = 'fiber_manual_record';
                 this.setState({myTurn: false})
-            }else{
-                event.currentTarget.children[0].innerHTML = 'games';
+            } else {
+                child.innerHTML = 'games';
                 this.setState({myTurn: true})
             }
-
         }
     };
 
