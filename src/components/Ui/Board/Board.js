@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Aux from '../../../hoc/Aux';
+import PropTypes from 'prop-types';
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import './Board.css';
@@ -137,5 +138,9 @@ class Board extends Component {
         )
     }
 }
+
+Board.propTypes = {
+    won: PropTypes.func
+};
 
 export default Board;
