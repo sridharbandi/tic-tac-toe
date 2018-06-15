@@ -10,7 +10,8 @@ import Icon from '@material-ui/core/Icon';
 class Board extends Component {
 
     state = {
-        myTurn: true
+        myTurn: true,
+        movecount: 0
     };
 
     board =
@@ -39,7 +40,13 @@ class Board extends Component {
                 this.board[x][y] = 'X'
             }
         }
-        console.log(this.board)
+        this.setState((prevState) => ({
+            movecount: prevState.movecount + 1
+        }),function(){
+            if(this.state.movecount >= (this.props.size*2 -1)){
+                //this.checkWinner(x,y)
+            }
+        });
     };
 
     render() {
