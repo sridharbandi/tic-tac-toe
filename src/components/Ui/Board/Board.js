@@ -70,6 +70,31 @@ class Board extends Component {
             return
         }
 
+        //Diagonal check
+        let diagonal = [];
+        if(x === y){
+            for(let i = 0; i < width; i++){
+                diagonal.push(this.board[i][i])
+            }
+            if(diagonal.every((val, i, arr) => val === arr[0])){
+                console.log('You won diag '+ diagonal[0])
+                this.props.won('Player '+diagonal[0]+' Won!!')
+                return
+            }
+        }
+        //Anti diagonal check
+        diagonal = [];
+        if((parseInt(x,10) + parseInt(y,10)) === (width - 1)){
+            for(let i = 0; i < width; i++){
+                diagonal.push(this.board[i][(width-1)-i])
+            }
+            if(diagonal.every((val, i, arr) => val === arr[0])){
+                console.log('You won anti diag '+ diagonal[0])
+                this.props.won('Player '+diagonal[0]+' Won!!')
+                return
+            }
+        }
+
 
     };
 
