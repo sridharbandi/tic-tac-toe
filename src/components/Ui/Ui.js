@@ -4,6 +4,7 @@ import Header from './Header/Header';
 import Board from "./Board/Board";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import Modal from "./Modal/Modal";
 
 class Ui extends Component {
     constructor(props) {
