@@ -44,9 +44,33 @@ class Board extends Component {
             movecount: prevState.movecount + 1
         }),function(){
             if(this.state.movecount >= (this.props.size*2 -1)){
-                //this.checkWinner(x,y)
+                this.checkWinner(x,y)
             }
         });
+    };
+
+    checkWinner= (x,y) => {
+        const width = this.props.size;
+        //Columns check
+        let column = [];
+        for(let i = 0; i < width; i++){
+            column.push(this.board[i][y]);
+        }
+        if(column.every((val, i, arr) => val === arr[0])){
+            console.log('You won column '+ column[0])
+            this.props.won('Player '+column[0]+' Won!!')
+            return
+        }
+
+        //Rows check
+        let row = this.board[x];
+        if(row.every((val, i, arr) => val === arr[0])){
+            console.log('You won row '+ row[0])
+            this.props.won('Player '+row[0]+' Won!!')
+            return
+        }
+
+
     };
 
     render() {
