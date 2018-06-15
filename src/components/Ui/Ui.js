@@ -6,21 +6,39 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 class Ui extends Component {
-    state = {
-        board: <Board size={this.props.size} key="1"/>
-    };
+    constructor(props) {
+        super();
+        this.winner = this.winner.bind(this);
+        this.state = {
+            board: <Board size={props.size} won={this.winner} key="1" />,
+            open: false,
+            text:''
+        }
+    }
+
+    winner = text => {
+        this.setState({
+            open: true,
+            text: text
+        })
+    }
 
     resetGame = () => {
         const value = Math.random().toString(36).substring(7);
         this.setState({
-            board: <Board size={this.props.size} key={value}/>
+            board: <Board size={this.props.size} won={this.winner} key={value} />
         })
+    };
+
+    handleClose = () => {
+        this.setState({ open: false });
+        this.resetGame();
     };
 
     render() {
         return (
             <Aux>
-                <Header/>
+                <Header />
                 {this.state.board}
                 <Grid container justify='center' spacing={0}>
                     <Grid>
@@ -30,7 +48,12 @@ class Ui extends Component {
                             color="default">
                             RESET
                         </Button>
-                    </Grid></Grid>
+                    </Grid>
+                </Grid>
+                <Modal
+                    text={this.state.text}
+                    open={this.state.open}
+                    onClose={this.handleClose} />
             </Aux>
         )
     }
