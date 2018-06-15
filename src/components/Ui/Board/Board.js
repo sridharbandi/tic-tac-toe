@@ -24,6 +24,7 @@ class Board extends Component {
         var target = event.currentTarget;
         var parent = target.parentElement;
         var child = target.children[0];
+        const [x, y] = target.dataset.coord.split(':');
         const className = parent.getAttribute("class");
         parent.setAttribute("class", className + " Clicked");
         const value = child.innerHTML;
@@ -31,11 +32,14 @@ class Board extends Component {
             if (this.state.myTurn) {
                 child.innerHTML = 'fiber_manual_record';
                 this.setState({myTurn: false})
+                this.board[x][y] = 'O'
             } else {
                 child.innerHTML = 'games';
                 this.setState({myTurn: true})
+                this.board[x][y] = 'X'
             }
         }
+        console.log(this.board)
     };
 
     render() {
