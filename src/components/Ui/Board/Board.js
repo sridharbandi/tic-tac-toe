@@ -42,60 +42,64 @@ class Board extends Component {
         }
         this.setState((prevState) => ({
             movecount: prevState.movecount + 1
-        }),function(){
-            if(this.state.movecount >= (this.props.size*2 -1)){
-                this.checkWinner(x,y)
+        }), function () {
+            if (this.state.movecount >= (this.props.size * 2 - 1)) {
+                this.checkWinner(x, y)
             }
         });
     };
 
-    checkWinner= (x,y) => {
+    checkWinner = (x, y) => {
         const width = this.props.size;
         //Columns check
         let column = [];
-        for(let i = 0; i < width; i++){
+        for (let i = 0; i < width; i++) {
             column.push(this.board[i][y]);
         }
-        if(column.every((val, i, arr) => val === arr[0])){
-            console.log('You won column '+ column[0])
-            this.props.won('Player '+column[0]+' Won!!')
+        if (column.every((val, i, arr) => val === arr[0])) {
+            console.log('You won column ' + column[0])
+            this.props.won('Player ' + column[0] + ' Won!!')
             return
         }
 
         //Rows check
         let row = this.board[x];
-        if(row.every((val, i, arr) => val === arr[0])){
-            console.log('You won row '+ row[0])
-            this.props.won('Player '+row[0]+' Won!!')
+        if (row.every((val, i, arr) => val === arr[0])) {
+            console.log('You won row ' + row[0])
+            this.props.won('Player ' + row[0] + ' Won!!')
             return
         }
 
         //Diagonal check
         let diagonal = [];
-        if(x === y){
-            for(let i = 0; i < width; i++){
+        if (x === y) {
+            for (let i = 0; i < width; i++) {
                 diagonal.push(this.board[i][i])
             }
-            if(diagonal.every((val, i, arr) => val === arr[0])){
-                console.log('You won diag '+ diagonal[0])
-                this.props.won('Player '+diagonal[0]+' Won!!')
+            if (diagonal.every((val, i, arr) => val === arr[0])) {
+                console.log('You won diag ' + diagonal[0])
+                this.props.won('Player ' + diagonal[0] + ' Won!!')
                 return
             }
         }
         //Anti diagonal check
         diagonal = [];
-        if((parseInt(x,10) + parseInt(y,10)) === (width - 1)){
-            for(let i = 0; i < width; i++){
-                diagonal.push(this.board[i][(width-1)-i])
+        if ((parseInt(x, 10) + parseInt(y, 10)) === (width - 1)) {
+            for (let i = 0; i < width; i++) {
+                diagonal.push(this.board[i][(width - 1) - i])
             }
-            if(diagonal.every((val, i, arr) => val === arr[0])){
-                console.log('You won anti diag '+ diagonal[0])
-                this.props.won('Player '+diagonal[0]+' Won!!')
+            if (diagonal.every((val, i, arr) => val === arr[0])) {
+                console.log('You won anti diag ' + diagonal[0])
+                this.props.won('Player ' + diagonal[0] + ' Won!!')
                 return
             }
         }
-
-
+        //Check tie
+        if (this.state.movecount === Math.pow(width, 2)) {
+            console.log('Its tie')
+            this.props.won('Its a tie!!')
+            return
+        }
     };
 
     render() {
