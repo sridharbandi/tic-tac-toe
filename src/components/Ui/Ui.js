@@ -66,7 +66,6 @@ class Ui extends Component {
                     </Grid>
                     <Grid item>
                         <Button
-                            className="Button"
                             onClick={this.showScore}
                             variant="raised"
                             color="default">
