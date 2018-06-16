@@ -48,8 +48,16 @@ class Ui extends Component {
             <Aux>
                 <Header />
                 {this.state.board}
-                <Grid container justify='center' spacing={0}>
-                    <Grid>
+                <Grid container justify='center' spacing={24}>
+                    <Grid item>
+                        <Button
+                            onClick={this.resetGame}
+                            variant="raised"
+                            color="default">
+                            RESET
+                        </Button>
+                    </Grid>
+                    <Grid item>
                         <Button
                             onClick={this.resetGame}
                             variant="raised"
