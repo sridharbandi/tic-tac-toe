@@ -24,16 +24,19 @@ class Ui extends Component {
             open: true,
             text: text
         })
-    }
+    };
 
     resetGame = () => {
         const value = Math.random().toString(36).substring(7);
         this.setState({
-            board: <Board size={this.props.size} won={this.winner} key={value} />,
+            board: <Board size={this.props.size} won={this.winner} key={value} />
+        })
+    };
+    resetGame = () => {
+        this.setState({
             score: true
         })
     };
-
     handleClose = () => {
         this.setState({ open: false });
         this.resetGame();
@@ -41,7 +44,7 @@ class Ui extends Component {
 
     closeScore = () => {
         this.setState({score: false});
-    }
+    };
 
     render() {
         return (
@@ -59,10 +62,10 @@ class Ui extends Component {
                     </Grid>
                     <Grid item>
                         <Button
-                            onClick={this.resetGame}
+                            onClick={this.showScore}
                             variant="raised"
                             color="default">
-                            RESET
+                            Score
                         </Button>
                     </Grid>
                 </Grid>
