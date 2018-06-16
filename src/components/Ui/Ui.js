@@ -5,6 +5,7 @@ import Board from "./Board/Board";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Modal from "./Modal/Modal";
+import Score from "./Score/Score";
 
 class Ui extends Component {
     constructor(props) {
@@ -13,6 +14,7 @@ class Ui extends Component {
         this.state = {
             board: <Board size={props.size} won={this.winner} key="1" />,
             open: false,
+            score: false,
             text:''
         }
     }
@@ -27,7 +29,8 @@ class Ui extends Component {
     resetGame = () => {
         const value = Math.random().toString(36).substring(7);
         this.setState({
-            board: <Board size={this.props.size} won={this.winner} key={value} />
+            board: <Board size={this.props.size} won={this.winner} key={value} />,
+            score: true
         })
     };
 
@@ -35,6 +38,10 @@ class Ui extends Component {
         this.setState({ open: false });
         this.resetGame();
     };
+
+    closeScore = () => {
+        this.setState({score: false});
+    }
 
     render() {
         return (
@@ -55,6 +62,10 @@ class Ui extends Component {
                     text={this.state.text}
                     open={this.state.open}
                     onClose={this.handleClose} />
+                <Score
+                    open={this.state.score}
+                    onClose={this.closeScore}
+                  />
             </Aux>
         )
     }

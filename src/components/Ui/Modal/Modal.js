@@ -10,13 +10,13 @@ import './Modal.css';
 
 const modaldialog = (props) => {
 
-    const { onClose, text } = props
+    const { open, onClose, text } = props
 
     return (
         <Dialog
             disableBackdropClick
             disableEscapeKeyDown
-            open={props.open}
+            open={open}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
             >
