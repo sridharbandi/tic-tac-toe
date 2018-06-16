@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Modal from "./Modal/Modal";
 import Score from "./Score/Score";
+import Refresh from '@material-ui/icons/Refresh';
+import List from '@material-ui/icons/Menu';
 
 class Ui extends Component {
     constructor(props) {
@@ -52,20 +54,23 @@ class Ui extends Component {
             <Aux>
                 <Header/>
                 {this.state.board}
-                <Grid container justify='center' spacing={24}>
+                <Grid container justify='center' spacing={24} className="Grid">
                     <Grid item>
                         <Button
                             onClick={this.resetGame}
                             variant="raised"
                             color="default">
+                            <Refresh/>
                             RESET
                         </Button>
                     </Grid>
                     <Grid item>
                         <Button
+                            className="Button"
                             onClick={this.showScore}
                             variant="raised"
                             color="default">
+                            <List/>
                             Score
                         </Button>
                     </Grid>
