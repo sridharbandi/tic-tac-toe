@@ -12,10 +12,10 @@ class Ui extends Component {
         super();
         this.winner = this.winner.bind(this);
         this.state = {
-            board: <Board size={props.size} won={this.winner} key="1" />,
+            board: <Board size={props.size} won={this.winner} key="1"/>,
             open: false,
             score: false,
-            text:''
+            text: ''
         }
     }
 
@@ -29,16 +29,17 @@ class Ui extends Component {
     resetGame = () => {
         const value = Math.random().toString(36).substring(7);
         this.setState({
-            board: <Board size={this.props.size} won={this.winner} key={value} />
+            board: <Board size={this.props.size} won={this.winner} key={value}/>
         })
     };
-    resetGame = () => {
+
+    showScore = () => {
         this.setState({
             score: true
         })
     };
     handleClose = () => {
-        this.setState({ open: false });
+        this.setState({open: false});
         this.resetGame();
     };
 
@@ -49,7 +50,7 @@ class Ui extends Component {
     render() {
         return (
             <Aux>
-                <Header />
+                <Header/>
                 {this.state.board}
                 <Grid container justify='center' spacing={24}>
                     <Grid item>
@@ -72,11 +73,11 @@ class Ui extends Component {
                 <Modal
                     text={this.state.text}
                     open={this.state.open}
-                    onClose={this.handleClose} />
+                    onClose={this.handleClose}/>
                 <Score
                     open={this.state.score}
                     onClose={this.closeScore}
-                  />
+                />
             </Aux>
         )
     }
