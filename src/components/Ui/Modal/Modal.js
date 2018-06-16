@@ -2,8 +2,11 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
+import Icon from '@material-ui/core/Icon';
+import './Modal.css';
 
 const modaldialog = (props) => {
 
@@ -17,7 +20,16 @@ const modaldialog = (props) => {
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
             >
-            <DialogTitle id="alert-dialog-title">{text}</DialogTitle>
+            <DialogContent className="Dialog">
+                <Icon
+                    className="Icon"
+                    style={{fontSize: 64}}>
+                        thumb_up
+                </Icon>
+                <DialogContentText className="Content">
+                    {text}
+                </DialogContentText>
+            </DialogContent>
             <DialogActions>
                 <Button
                     onClick={onClose}
