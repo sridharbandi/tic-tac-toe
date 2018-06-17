@@ -60,7 +60,7 @@ class Ui extends Component {
                             onClick={this.resetGame}
                             variant="raised"
                             color="default">
-                            <Refresh/>
+                            <Refresh style={{color:'#E91E63'}}/>
                             RESET
                         </Button>
                     </Grid>
@@ -69,7 +69,7 @@ class Ui extends Component {
                             onClick={this.showScore}
                             variant="raised"
                             color="default">
-                            <List/>
+                            <List style={{color:'#E91E63'}}/>
                             Score
                         </Button>
                     </Grid>

@@ -23,6 +23,10 @@ const scorecard = (props) => {
         </IconButton>
     );
 
+    const draws = localStorage.getItem('DRAWS');
+    const wons = localStorage.getItem('WONS');
+    const loss = localStorage.getItem('LOSS');
+
     const score = (
         <Aux>
             <Divider className="Divider"/>
@@ -47,17 +51,17 @@ const scorecard = (props) => {
             <Grid container style={{marginTop:'5px'}}>
                 <Grid item xs={4}>
                     <Typography variant="caption" color="secondary" className="Scores">
-                        2
+                        {wons===null?0:wons}
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography variant="caption" color="secondary" className="Scores">
-                        3
+                        {draws===null?0:draws}
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography variant="caption" color="secondary" className="Scores">
-                        4
+                        {loss===null?0:loss}
                     </Typography>
                 </Grid>
             </Grid>

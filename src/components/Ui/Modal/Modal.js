@@ -10,7 +10,7 @@ import './Modal.css';
 
 const modaldialog = (props) => {
 
-    const { open, onClose, text } = props
+    const { open, onClose, text } = props;
 
     return (
         <Dialog
@@ -40,5 +40,5 @@ const modaldialog = (props) => {
             </DialogActions>
         </Dialog>
     )
-}
+};
 export default withMobileDialog()(modaldialog);
