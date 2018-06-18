@@ -1,1 +1,1 @@
-### Working on it. not ready for use.  n.q  1`
+### Basic two player is done. Need to include AI
