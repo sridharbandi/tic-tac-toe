@@ -1,6 +1,7 @@
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -12,7 +13,10 @@ const scorecard = (props) => {
 
     const {open, onClose} = props;
 
-    const action = (
+    const action = [
+        <Button key="undo" color="secondary" size="small" onClick={this.handleClose}>
+        UNDO
+        </Button>,
         <IconButton
             key="close"
             aria-label="Close"
@@ -21,7 +25,7 @@ const scorecard = (props) => {
         >
             <CloseIcon/>
         </IconButton>
-    );
+    ];
 
     const draws = localStorage.getItem('DRAWS');
     const wons = localStorage.getItem('WONS');
