@@ -1,8 +1,8 @@
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -14,16 +14,21 @@ const scorecard = (props) => {
     const {open, onClose} = props;
 
     const action = [
-        <Button key="undo" color="secondary" size="small" onClick={this.handleClose}>
-        UNDO
-        </Button>,
+        <IconButton
+            key="delete"
+            aria-label="delete"
+            color="inherit"
+            onClick={onClose}
+            >
+            <DeleteIcon style={{color:'#E91E63'}}/>
+        </IconButton>,
         <IconButton
             key="close"
             aria-label="Close"
             color="inherit"
             onClick={onClose}
-        >
-            <CloseIcon/>
+            >
+            <CloseIcon style={{color:'#E91E63'}}/>
         </IconButton>
     ];
 
