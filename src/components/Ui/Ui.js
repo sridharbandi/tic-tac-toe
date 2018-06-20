@@ -53,6 +53,8 @@ class Ui extends Component {
         localStorage.setItem('DRAWS',0);
         localStorage.setItem('WONS',0);
         localStorage.setItem('LOSS',0);
+        this.setState({score: false});
+        this.setState({score: true});
     };
 
     render() {

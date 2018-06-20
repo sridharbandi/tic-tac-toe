@@ -35,6 +35,7 @@ const scorecard = (props) => {
     const draws = localStorage.getItem('DRAWS');
     const wons = localStorage.getItem('WONS');
     const loss = localStorage.getItem('LOSS');
+    console.log(draws);
 
     const score = (
         <Aux>
