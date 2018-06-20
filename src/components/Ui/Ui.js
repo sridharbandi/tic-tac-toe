@@ -49,6 +49,12 @@ class Ui extends Component {
         this.setState({score: false});
     };
 
+    clearScore = () => {
+        localStorage.setItem('DRAWS',0);
+        localStorage.setItem('WONS',0);
+        localStorage.setItem('LOSS',0);
+    };
+
     render() {
         return (
             <Aux>
@@ -81,6 +87,7 @@ class Ui extends Component {
                 <Score
                     open={this.state.score}
                     onClose={this.closeScore}
+                    clearScore={this.clearScore}
                 />
             </Aux>
         )

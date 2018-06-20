@@ -11,14 +11,14 @@ import "./Score.css"
 
 const scorecard = (props) => {
 
-    const {open, onClose} = props;
+    const {open, onClose, clearScore} = props;
 
     const action = [
         <IconButton
             key="delete"
             aria-label="delete"
             color="inherit"
-            onClick={onClose}
+            onClick={clearScore}
             >
             <DeleteIcon style={{color:'#E91E63'}}/>
         </IconButton>,
