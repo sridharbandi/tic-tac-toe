@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import './Board.css';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Icon from '@material-ui/core/Icon';
+import MonteCarlo from '../../Game/MonteCarlo/MonteCarlo';
 
 
 class Board extends Component {
@@ -21,6 +22,8 @@ class Board extends Component {
                 () => 0
             )
         );
+
+    monte = new MonteCarlo(this.board);
 
     clickHandler = (event) => {
         var target = event.currentTarget;
@@ -48,6 +51,7 @@ class Board extends Component {
                 this.checkWinner(x, y)
             }
         });
+        console.log(this.monte.zeroSquares());
     };
 
     checkWinner = (x, y) => {
