@@ -14,10 +14,15 @@ export default class MonteCarlo {
             })
         });
         return zeros;
+    };
+
+    play = (x,y,player) =>{
+        return this.board[x][y] = player;
+    };
+
+    square =(x,y) => {
+        return this.board[x][y];
     }
 
-    play(x,y,player) {
-        return this.board[x][y] = player;
-    }
 
 }
