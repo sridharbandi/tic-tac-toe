@@ -5,7 +5,7 @@ export default class MonteCarlo {
     }
 
     zeroSquares = () => {
-        var zeros = [];
+        let zeros = [];
         this.board.forEach((row, rowId) => {
             row.forEach((col, colId) => {
                 if (this.board[rowId][colId] === 0) {
@@ -16,5 +16,8 @@ export default class MonteCarlo {
         return zeros;
     }
 
+    play(x,y,player) {
+        return this.board[x][y] = player;
+    }
 
 }

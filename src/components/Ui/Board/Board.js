@@ -51,7 +51,6 @@ class Board extends Component {
                 this.checkWinner(x, y)
             }
         });
-        console.log(this.monte.zeroSquares());
     };
 
     checkWinner = (x, y) => {
