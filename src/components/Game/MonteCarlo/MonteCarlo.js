@@ -16,12 +16,22 @@ export default class MonteCarlo {
         return zeros;
     };
 
-    play = (x,y,player) =>{
+    play = (x, y, player) => {
         return this.board[x][y] = player;
     };
 
-    square =(x,y) => {
+    square = (x, y) => {
         return this.board[x][y];
+    };
+
+    initializeMove = () => {
+        if(Math.floor(Math.random() * 2) === 0){
+            this.mcMove();
+        }
+    };
+
+    mcMove = () => {
+        console.log('MC Move');
     }
 
 

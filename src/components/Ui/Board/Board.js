@@ -98,10 +98,14 @@ class Board extends Component {
         if (this.state.movecount === Math.pow(width, 2)) {
             this.props.won('Its a tie!!');
             let oldvalue = localStorage.getItem('DRAWS');
-            oldvalue = oldvalue===null?0:oldvalue
+            oldvalue = oldvalue===null?0:oldvalue;
             localStorage.setItem('DRAWS', parseInt(oldvalue, 10)+1);
             return
         }
+    };
+
+    componentDidMount = () => {
+        this.monte.initializeMove();
     };
 
     render() {
