@@ -13,7 +13,8 @@ class Board extends Component {
 
     state = {
         myTurn: true,
-        movecount: 0
+        movecount: 0,
+        player: "mc"
     };
 
     board =
@@ -56,6 +57,7 @@ class Board extends Component {
     checkWinner = (x, y) => {
         const width = this.props.size;
         //Columns check
+
         let column = [];
         for (let i = 0; i < width; i++) {
             column.push(this.board[i][y]);
@@ -105,7 +107,7 @@ class Board extends Component {
     };
 
     componentDidMount = () => {
-        this.monte.initializeMove();
+        this.monte.initializeMove(this.state.player);
     };
 
     render() {

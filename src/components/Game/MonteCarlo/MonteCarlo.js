@@ -24,15 +24,18 @@ export default class MonteCarlo {
         return this.board[x][y];
     };
 
-    initializeMove = () => {
+    initializeMove = (player) => {
         if(Math.floor(Math.random() * 2) === 0){
-            this.mcMove();
+            this.mcMove(player);
         }
     };
 
-    mcMove = () => {
-        console.log('MC Move');
-    }
+    mcMove = (player) => {
 
+    };
+
+    mcSimulate = () => {
+
+    }
 
 }
