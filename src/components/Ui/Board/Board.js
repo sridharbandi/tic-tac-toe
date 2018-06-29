@@ -24,7 +24,7 @@ class Board extends Component {
             )
         );
 
-    monte = new MonteCarlo(this.board);
+    monte = new MonteCarlo(this.board, this.props.size);
 
     clickHandler = (event) => {
         var target = event.currentTarget;
@@ -49,62 +49,12 @@ class Board extends Component {
             movecount: prevState.movecount + 1
         }), function () {
             if (this.state.movecount >= (this.props.size * 2 - 1)) {
-                this.checkWinner(x, y)
+                this.monte.checkWinner(x,y, this.state.movecount);
+                //this.checkWinner(x, y)
             }
         });
     };
 
-    checkWinner = (x, y) => {
-        const width = this.props.size;
-        //Columns check
-
-        let column = [];
-        for (let i = 0; i < width; i++) {
-            column.push(this.board[i][y]);
-        }
-        if (column.every((val, i, arr) => val === arr[0])) {
-            this.props.won('Player ' + column[0] + ' Won!!');
-            return
-        }
-
-        //Rows check
-        let row = this.board[x];
-        if (row.every((val, i, arr) => val === arr[0])) {
-            this.props.won('Player ' + row[0] + ' Won!!');
-            return
-        }
-
-        //Diagonal check
-        let diagonal = [];
-        if (x === y) {
-            for (let i = 0; i < width; i++) {
-                diagonal.push(this.board[i][i])
-            }
-            if (diagonal.every((val, i, arr) => val === arr[0])) {
-                this.props.won('Player ' + diagonal[0] + ' Won!!');
-                return
-            }
-        }
-        //Anti diagonal check
-        diagonal = [];
-        if ((parseInt(x, 10) + parseInt(y, 10)) === (width - 1)) {
-            for (let i = 0; i < width; i++) {
-                diagonal.push(this.board[i][(width - 1) - i])
-            }
-            if (diagonal.every((val, i, arr) => val === arr[0])) {
-                this.props.won('Player ' + diagonal[0] + ' Won!!');
-                return
-            }
-        }
-        //Check tie
-        if (this.state.movecount === Math.pow(width, 2)) {
-            this.props.won('Its a tie!!');
-            let oldvalue = localStorage.getItem('DRAWS');
-            oldvalue = oldvalue===null?0:oldvalue;
-            localStorage.setItem('DRAWS', parseInt(oldvalue, 10)+1);
-            return
-        }
-    };
 
     componentDidMount = () => {
         this.monte.initializeMove(this.state.player);
