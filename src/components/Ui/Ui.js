@@ -11,7 +11,7 @@ import List from '@material-ui/icons/Menu';
 
 class Ui extends Component {
     constructor(props) {
-        super();
+        super(props);
         this.winner = this.winner.bind(this);
         this.state = {
             board: <Board size={props.size} won={this.winner} key="1"/>,

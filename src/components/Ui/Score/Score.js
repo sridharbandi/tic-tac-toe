@@ -92,6 +92,6 @@ const scorecard = (props) => {
             action={action}
         />
     );
-}
+};
 
 export default scorecard;
