@@ -8,7 +8,6 @@ import Modal from "./Modal/Modal";
 import Score from "./Score/Score";
 import Refresh from '@material-ui/icons/Refresh';
 import List from '@material-ui/icons/Menu';
-import Settings from '@material-ui/icons/Settings';
 
 class Ui extends Component {
     constructor(props) {
@@ -23,12 +22,10 @@ class Ui extends Component {
     }
 
     winner = text => {
-        if(text!==undefined) {
-            this.setState({
-                open: true,
-                text: text
-            })
-        }
+        this.setState({
+            open: true,
+            text: text
+        })
     };
 
     resetGame = () => {
@@ -65,12 +62,11 @@ class Ui extends Component {
             <Aux>
                 <Header/>
                 {this.state.board}
-                <Grid container justify='center' spacing={16} className="Grid">
+                <Grid container justify='center' spacing={24} className="Grid">
                     <Grid item>
                         <Button
                             onClick={this.resetGame}
                             variant="raised"
-                            size="small"
                             color="default">
                             <Refresh style={{color:'#E91E63'}}/>
                             RESET
@@ -80,19 +76,9 @@ class Ui extends Component {
                         <Button
                             onClick={this.showScore}
                             variant="raised"
-                            size="small"
                             color="default">
                             <List style={{color:'#E91E63'}}/>
                             Score
-                        </Button>
-                    </Grid>
-                    <Grid item>
-                        <Button
-                            variant="raised"
-                            size="small"
-                            color="default">
-                            <Settings style={{color:'#E91E63'}}/>
-                            Mode
                         </Button>
                     </Grid>
                 </Grid>
