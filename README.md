@@ -6,6 +6,10 @@ Tic Tac Toe implementation in React with [Material UI](https://material-ui.com/)
 
 ### [Live Demo](https://sridharbandi.github.io/tic-tac-toe/) 
 
+### Screenshots
+![image1](/images/image1.png)
+![image2](/images/image2.png)
+
 ### To run in Local
 Clone or download and issue the below commands in project root directory and open [http://localhost:3000](http://localhost:3000) in browser
 ```javascript
