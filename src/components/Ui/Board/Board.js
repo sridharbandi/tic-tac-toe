@@ -33,11 +33,11 @@ class Board extends Component {
         if (value === '') {
             if (this.state.myTurn) {
                 child.innerHTML = 'fiber_manual_record';
-                this.setState({myTurn: false})
+                this.setState({myTurn: false});
                 this.board[x][y] = 'O'
             } else {
                 child.innerHTML = 'games';
-                this.setState({myTurn: true})
+                this.setState({myTurn: true});
                 this.board[x][y] = 'X'
             }
         }
@@ -58,14 +58,16 @@ class Board extends Component {
             column.push(this.board[i][y]);
         }
         if (column.every((val, i, arr) => val === arr[0])) {
-            this.props.won('Player ' + column[0] + ' Won!!');
+            this.announcement();
+            //this.props.won('Player ' + column[0] + ' Won!!');
             return
         }
 
         //Rows check
         let row = this.board[x];
         if (row.every((val, i, arr) => val === arr[0])) {
-            this.props.won('Player ' + row[0] + ' Won!!');
+            //this.props.won('Player ' + row[0] + ' Won!!');
+            this.announcement();
             return
         }
 
@@ -76,7 +78,8 @@ class Board extends Component {
                 diagonal.push(this.board[i][i])
             }
             if (diagonal.every((val, i, arr) => val === arr[0])) {
-                this.props.won('Player ' + diagonal[0] + ' Won!!');
+                this.announcement();
+                //this.props.won('Player ' + diagonal[0] + ' Won!!');
                 return
             }
         }
@@ -87,7 +90,8 @@ class Board extends Component {
                 diagonal.push(this.board[i][(width - 1) - i])
             }
             if (diagonal.every((val, i, arr) => val === arr[0])) {
-                this.props.won('Player ' + diagonal[0] + ' Won!!');
+                this.announcement();
+                //this.props.won('Player ' + diagonal[0] + ' Won!!');
                 return
             }
         }
@@ -99,6 +103,14 @@ class Board extends Component {
             localStorage.setItem('DRAWS', parseInt(oldvalue, 10)+1);
             return
         }
+    };
+
+
+    announcement = () => {
+        if(!this.state.myTurn)
+            this.props.won('You won!!')
+        else
+            this.props.won('Opponent won!!')
     };
 
     render() {

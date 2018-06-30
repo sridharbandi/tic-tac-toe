@@ -12,6 +12,14 @@ const modaldialog = (props) => {
 
     const { open, onClose, text } = props;
 
+    let icon;
+    if(text.includes('You'))
+        icon = 'sentiment_very_satisfied';
+    else if(text.includes('Opponent'))
+        icon = 'sentiment_very_dissatisfied';
+    else
+        icon = 'thumbs_up_down';
+
     return (
         <Dialog
             disableBackdropClick
@@ -24,7 +32,7 @@ const modaldialog = (props) => {
                 <Icon
                     className="Icon"
                     style={{fontSize: 64}}>
-                        thumb_up
+                    {icon}
                 </Icon>
                 <DialogContentText className="Content">
                     {text}
