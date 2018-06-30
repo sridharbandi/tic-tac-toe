@@ -1,6 +1,6 @@
 # React Tic-Tac-Toe
 
-***Created by Sridhar Bandi with [create-react-app](https://github.com/facebook/create-react-app)
+***Created by Sridhar Bandi with [create-react-app](https://github.com/facebook/create-react-app)***
 
 Tic Tac Toe implementation in React with [Material UI](https://material-ui.com/)
 
