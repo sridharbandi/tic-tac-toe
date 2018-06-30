@@ -23,10 +23,12 @@ class Ui extends Component {
     }
 
     winner = text => {
-        this.setState({
-            open: true,
-            text: text
-        })
+        if(text!==undefined) {
+            this.setState({
+                open: true,
+                text: text
+            })
+        }
     };
 
     resetGame = () => {

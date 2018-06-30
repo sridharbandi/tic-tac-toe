@@ -49,8 +49,7 @@ class Board extends Component {
             movecount: prevState.movecount + 1
         }), function () {
             if (this.state.movecount >= (this.props.size * 2 - 1)) {
-                this.monte.checkWinner(x,y, this.state.movecount);
-                //this.checkWinner(x, y)
+                this.props.won(this.monte.checkWinner(x,y, this.state.movecount));
             }
         });
     };

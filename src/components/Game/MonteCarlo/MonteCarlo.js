@@ -38,9 +38,8 @@ export default class MonteCarlo {
             )
         );
 
-        for(let i in [...Array(1000)]){
+        for(let i in [...Array(10)]){
             this.currentboard = {...this.board};
-
 
         }
 
@@ -93,7 +92,7 @@ export default class MonteCarlo {
             }
         }
         //Check tie
-        if (movecount === Math.pow(width, 2)) {
+        if (this.zeroSquares().length === 0) {
             //this.props.won('Its a tie!!');
             let oldvalue = localStorage.getItem('DRAWS');
             oldvalue = oldvalue===null?0:oldvalue;
