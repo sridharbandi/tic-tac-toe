@@ -59,14 +59,12 @@ class Board extends Component {
         }
         if (column.every((val, i, arr) => val === arr[0])) {
             this.announcement();
-            //this.props.won('Player ' + column[0] + ' Won!!');
             return
         }
 
         //Rows check
         let row = this.board[x];
         if (row.every((val, i, arr) => val === arr[0])) {
-            //this.props.won('Player ' + row[0] + ' Won!!');
             this.announcement();
             return
         }
@@ -79,7 +77,6 @@ class Board extends Component {
             }
             if (diagonal.every((val, i, arr) => val === arr[0])) {
                 this.announcement();
-                //this.props.won('Player ' + diagonal[0] + ' Won!!');
                 return
             }
         }
@@ -91,26 +88,33 @@ class Board extends Component {
             }
             if (diagonal.every((val, i, arr) => val === arr[0])) {
                 this.announcement();
-                //this.props.won('Player ' + diagonal[0] + ' Won!!');
                 return
             }
         }
         //Check tie
         if (this.state.movecount === Math.pow(width, 2)) {
             this.props.won('Its a tie!!');
-            let oldvalue = localStorage.getItem('DRAWS');
-            oldvalue = oldvalue===null?0:oldvalue
-            localStorage.setItem('DRAWS', parseInt(oldvalue, 10)+1);
+            this.setScore('DRAWS');
             return
         }
     };
 
 
     announcement = () => {
-        if(!this.state.myTurn)
-            this.props.won('You won!!')
-        else
-            this.props.won('Opponent won!!')
+        if (!this.state.myTurn) {
+            this.props.won('You won!!');
+            this.setScore('WONS');
+        }
+        else {
+            this.props.won('Opponent won!!');
+            this.setScore('LOSS');
+        }
+    };
+
+    setScore = (text) => {
+        let oldvalue = localStorage.getItem(text);
+        oldvalue = oldvalue === null ? 0 : oldvalue;
+        localStorage.setItem(text, parseInt(oldvalue, 10) + 1);
     };
 
     render() {
