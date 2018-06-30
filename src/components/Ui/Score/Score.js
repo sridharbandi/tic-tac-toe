@@ -1,5 +1,6 @@
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
+import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -93,5 +94,12 @@ const scorecard = (props) => {
         />
     );
 };
+
+scorecard.propTypes = {
+    open: PropTypes.func,
+    onClose: PropTypes.func,
+    clearScore: PropTypes.func
+};
+
 
 export default scorecard;

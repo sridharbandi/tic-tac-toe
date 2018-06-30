@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -49,4 +50,11 @@ const modaldialog = (props) => {
         </Dialog>
     )
 };
+
+modaldialog.propTypes = {
+  open: PropTypes.func,
+  onClose: PropTypes.func,
+  text: PropTypes.string
+};
+
 export default withMobileDialog()(modaldialog);

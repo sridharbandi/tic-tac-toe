@@ -154,7 +154,8 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-    won: PropTypes.func
+    won: PropTypes.func,
+    size: PropTypes.number
 };
 
 export default Board;

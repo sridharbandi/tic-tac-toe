@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux';
 import Header from './Header/Header';
 import Board from "./Board/Board";
@@ -95,5 +96,9 @@ class Ui extends Component {
         )
     }
 }
+
+Ui.propTypes = {
+  size: PropTypes.number
+};
 
 export default Ui;
